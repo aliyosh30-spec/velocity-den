@@ -2,39 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Elite Automotive Design System - Dark Gradient Theme with High-Tech Aesthetic 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Primary Backgrounds - Deep gradient system */
+    --background: 210 17% 7%;        /* #0B0C10 primary dark */
+    --foreground: 0 0% 100%;         /* #FFFFFF primary text */
+    --background-secondary: 215 15% 12%; /* #1B2735 gradient end */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card Backgrounds - Secondary gradient system */
+    --card: 220 15% 8%;              /* #13151A card start */
+    --card-foreground: 0 0% 100%;    /* #FFFFFF card text */
+    --card-secondary: 213 12% 17%;   /* #2A2F38 card gradient end */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover and dialogs */
+    --popover: 220 15% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Electric Orange Accent System */
+    --primary: 24 100% 50%;          /* #FF6600 electric orange */
+    --primary-foreground: 0 0% 100%; /* White text on orange */
+    --primary-glow: 24 100% 60%;     /* #FF8C42 hover gradient end */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Metallic Silver System */
+    --secondary: 0 0% 75%;           /* #C0C0C0 metallic silver */
+    --secondary-foreground: 210 17% 7%; /* Dark text on silver */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Light gray text */
+    --muted: 213 12% 17%;            /* #2A2F38 muted backgrounds */
+    --muted-foreground: 0 0% 83%;    /* #D3D3D3 secondary text */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Electric orange variants */
+    --accent: 24 100% 50%;           /* Electric orange */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive states */
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs - Subtle metallic */
+    --border: 0 0% 25%;              /* Subtle border */
+    --input: 220 15% 8%;             /* Input background */
+    --ring: 24 100% 50%;             /* Electric orange focus ring */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 17% 7%), hsl(215 15% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(220 15% 8%), hsl(213 12% 17%));
+    --gradient-electric: linear-gradient(135deg, hsl(24 100% 50%), hsl(24 100% 60%));
+    --gradient-metallic: linear-gradient(135deg, hsl(0 0% 75%), hsl(0 0% 85%));
+
+    /* Shadows and glows */
+    --shadow-electric: 0 0 30px hsl(24 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.2);
+    --glow-subtle: 0 0 20px hsl(24 100% 50% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-electric: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -55,43 +82,35 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Custom component classes for automotive theme */
+  .gradient-bg {
+    background: var(--gradient-primary);
   }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-electric {
+    background: var(--gradient-electric);
+  }
+  
+  .electric-glow {
+    box-shadow: var(--shadow-electric);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .transition-electric {
+    transition: var(--transition-electric);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
 }
 
 @layer base {
